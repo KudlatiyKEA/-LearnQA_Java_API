@@ -1,3 +1,5 @@
+package LessonSecondHomeWork;
+
 import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
@@ -7,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RequestTests {
+public class ExampleLessonSecondTests {
     @Test
     public void firstRequestTest() {
         Response response = RestAssured
