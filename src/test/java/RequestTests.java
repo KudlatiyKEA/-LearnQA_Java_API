@@ -133,11 +133,9 @@ public class RequestTests {
     public void getCookiesTest() {
         /**
          * POST This API call set auth cookie by login=secret_login and password=secret_pass
-         *
          * Params:
          * @ login : string
-         * @ password : string
-         *
+         * @ password :
          * https://playground.learnqa.ru/api/get_auth_cookie
          */
 
@@ -157,20 +155,20 @@ public class RequestTests {
             .post("https://playground.learnqa.ru/api/get_auth_cookie")
             .andReturn();
 
-//        System.out.println("\nPretty text");
-//        response.prettyPrint();
-//
-//        System.out.println("\nHeaders");
-//        Headers responseHeaders = response.getHeaders();
-//        System.out.println(responseHeaders);
-//
-//        System.out.println("\nCookies");
-//        Map<String, String> responseCookies = response.getCookies();
-//        System.out.println(responseCookies);
+        System.out.println("\nPretty text");
+        response.prettyPrint();
+
+        System.out.println("\nHeaders");
+        Headers responseHeaders = response.getHeaders();
+        System.out.println(responseHeaders);
+
+        System.out.println("\nCookies");
+        Map<String, String> responseCookies = response.getCookies();
+        System.out.println(responseCookies);
 
         // вывести только код аутентификации
-        String responseCookie = response.getCookie("auth_cookie");
-        System.out.println(responseCookie);
+//        String responseCookie = response.getCookie("auth_cookie");
+//        System.out.println(responseCookie);
     }
 
     @Test
