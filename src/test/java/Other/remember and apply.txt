@@ -1,0 +1,1 @@
+Assertions.assertEquals("And this is a second message", response.jsonPath().getString("messages[1]"));  //проверка ОР с ФР

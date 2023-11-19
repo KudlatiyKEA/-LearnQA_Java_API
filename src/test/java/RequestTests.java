@@ -41,7 +41,7 @@ public class RequestTests {
             .jsonPath();
 //        response.prettyPrint(); //вывести полученный ответ
 
-        String answer = response.get("answer2");
+        String answer = response.get("answer");
         //проверка на содержание нужного ключа в json
         if (answer == null) {
             System.out.println("The key 'answer' is absent");
