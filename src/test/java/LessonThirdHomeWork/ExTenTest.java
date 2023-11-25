@@ -3,7 +3,7 @@ package LessonThirdHomeWork;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Ex10: Тест на короткую фразу
@@ -17,8 +17,6 @@ public class ExTenTest {
     @ParameterizedTest
     @ValueSource(strings = {"12354", "12345678901234567890123456789", "12345678901234567890", "12345678901234"})
     public void parameterizationTest(String data) {
-        String queryParams = data;
-        boolean check = queryParams.length() > 15;
-        assertEquals(true, check, "Very short line");
+        assertTrue(data.length() > 15, "Very short line");
     }
 }
