@@ -10,7 +10,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -67,24 +66,5 @@ public class ExampleLassonThirdTests {
         String expectedName = (name.length() > 0) ? name : "indefined"; //Error
 //        String expectedName = (name.length() > 0) ? name : "someone";
         assertEquals("Hello, " + expectedName, answer,"The answer is not expected");
-    }
-    @Test
-    public void userAuthorizationTest(String name) {
-        Map<String, String> authData = new HashMap<>();
-        authData.put("email","vinkotov@example.com");
-        authData.put("password","1234");
-
-        Response respons = RestAssured
-            .given()
-            .body(authData)
-            .post("https://playground.learnqa.ru/api/user/login")
-            .andReturn();
-
-        Map<String,String> cookies = respons.getCookies();
-        Headers headers = respons.getHeaders();
-        int userIdOnAuth = respons.jsonPath().getInt("user_id");
-        assertEquals(200, respons.statusCode(), "Unexpected status code");
-        assertTrue(cookies.containsKey("auth_side"), "Unexpected status code");
-
     }
 }
