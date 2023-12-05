@@ -78,7 +78,7 @@ public class ExEighthTests {
 
         String text = responseOne.get("status");
         assertEquals("Job is NOT ready", text);
-
+//        String error = responseOne.get("error");
         // ждет нужное количество секунд с помощью функции time.sleep()
         Thread.sleep(time * 1000);
 
