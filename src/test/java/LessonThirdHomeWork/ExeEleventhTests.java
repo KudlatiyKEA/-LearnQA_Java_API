@@ -15,18 +15,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Этот метод возвращает какую-то cookie с каким-то значением. Необходимо понять что за cookie и с каким значением, и зафиксировать это поведение с помощью assert.
  * Результатом должна быть ссылка на коммит с тестом.
  */
-public class ExeEeventhTests {
+public class ExeEleventhTests {
     @Test
     public void testHomeworkCookie() {
         Response response = RestAssured
             .get("https://playground.learnqa.ru/api/homework_cookie")
             .andReturn();
+//        System.out.println(response.getCookies()); //проверка
         Map<String, String> cookies = response.getCookies();
-        String expectedCookieName = "HomeWork";
-        String expectedCookieValue = "hw_value";
 
-        assertEquals(200, response.statusCode(),
-            "Unexpected status code");
+        assertEquals(200, response.statusCode(),"Unexpected status code");
         assertTrue(cookies.containsKey("HomeWork"), "cookies doesn't contains key 'HomeWork'");
         assertTrue(cookies.containsValue("hw_value"), "cookies doesn't contains value 'hw_value'");
     }
