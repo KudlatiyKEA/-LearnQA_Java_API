@@ -46,7 +46,7 @@ public class UserGetTests extends BaseTestCase {
             URL_LOGIN,
             authData);
 
-        //Для авторизованного пользователя получаем заголовок и куки
+        //Для авторизованного пользователя получаем заголовок и cookie
         String header = this.getHeader(responseGetAuth,"x-csrf-token");
         String cookie = this.getCookie(responseGetAuth,"auth_sid");
 
@@ -76,7 +76,7 @@ public class UserGetTests extends BaseTestCase {
             URL_LOGIN,
             authData);
 
-        //Для авторизованного пользователя получаем заголовок и куки
+        //Для авторизованного пользователя получаем заголовок и cookie
         String header = this.getHeader(responseGetAuth,"x-csrf-token");
         String cookie = this.getCookie(responseGetAuth,"auth_sid");
         int id = this.getIntFromJson(responseGetAuth,"user_id");

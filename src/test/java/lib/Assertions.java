@@ -8,7 +8,13 @@ import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Assertions {
-    @Step("Assert that json has int key with expected value")//Метод валидации : проверяем что в ответе от сервера содержится поле с именем name и в нем ожидаемое значение
+    /**
+     * Проверка ответа от сервера на содержание поля с именем name и ожидаемое значение
+     * @param response
+     * @param name
+     * @param expectedValue
+     */
+    @Step("Assert that json has int key with expected value")
     public static void assertJsonByName(Response response, String name, int expectedValue) {
         response.then().assertThat().body("$", hasKey(name));
 
@@ -24,7 +30,10 @@ public class Assertions {
         assertEquals(expectedValue, value, "JSON value is not equal to expected value");
     }
 
-    @Step("Assert that text response equals expected")//Проверка, что текст ответа сервера равен ожидаемому
+    /**
+     * Проверка, что текст ответа сервера равен ожидаемому
+     */
+    @Step("Assert that text response equals expected")
     public static void assertResponseTextEquals(Response response, String expectedAnswer) {
         assertEquals(
             expectedAnswer,
@@ -33,7 +42,10 @@ public class Assertions {
         );
     }
 
-    @Step("Assert that code response equals expected")//Проверка, что код ответа сервера равен ожидаемому
+    /**
+     * Проверка, что код ответа сервера равен ожидаемому
+     */
+    @Step("Assert that code response equals expected")
     public static void assertResponseCodeEquals(Response response, int expectedStatusCode) {
         assertEquals(
             expectedStatusCode,
@@ -42,19 +54,29 @@ public class Assertions {
         );
     }
 
-    @Step("Assert that response has expected field")//метод проверяет что в json приходит ответ содержащие конкретное поле
+    /**
+     * метод проверяет что в json приходит ответ содержащие конкретное поле
+     * @param response
+     * @param expectedFieldName
+     */
+    @Step("Assert that response has expected field")
     public static void assertJsonHasField(Response response, String expectedFieldName) {
         response.then().assertThat().body("$", hasKey(expectedFieldName));
     }
 
-    @Step("Assert that response has expected fields")//метод проверяет что в json приходит ответ содержащие конкретное поле
+    /**
+     * метод проверяет что в json приходит ответ содержащие конкретное поле
+     */
+    @Step("Assert that response has expected fields")
     public static void assertJsonHasFields(Response response, String[] expectedFieldNames) {
         for (String expectedFieldName : expectedFieldNames) {
             Assertions.assertJsonHasField(response, expectedFieldName);
         }
     }
 
-    //метод проверяет, что в json нет определенных полей
+    /**
+     * метод проверяет, что в json нет определенных полей
+     */
     public static void assertJsonHasNotField(Response response, String unexpectedFieldName) {
         response.then().assertThat().body("$", not(hasKey(unexpectedFieldName)));
     }
